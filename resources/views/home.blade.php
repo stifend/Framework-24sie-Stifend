@@ -91,6 +91,27 @@
     <section id="content" class="container ">
         <div class="row">
             <div class="col-md-6">
+                <div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Form Pertanyaan</h5>
+        <form action="{{ route('question.store') }}" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control"name="nama">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</labelname="email">
+                <input type="text" class="form-control"name="email">
+            </div>
+            <div class="mb-3">
+                <label for="pertanyaan" class="form-label">Pertanyaan</label>
+                <textarea class="form-control"name="pertanyaan" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirim Pertanyaan</button>
+        </form>
+    </div>
+</div>
                 {{-- About --}}
                 <div class="card mb-4">
                     <div class="card-body">
