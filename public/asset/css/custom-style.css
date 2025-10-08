@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Sans.tft';
+    src: url('assets/fonts/Sans.ttf');
+}
+
+.font-custom{
+    font-family: 'Sans.tft';
+}
