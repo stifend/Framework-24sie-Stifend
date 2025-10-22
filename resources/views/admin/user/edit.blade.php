@@ -34,31 +34,31 @@
                     <div class="card-body">
                         <form action="{{ route('user.update', $dataUser->id) }}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="row mb-4">
                                 <div class="col-lg-4 col-sm-6">
-                                    <!--  Name -->
+                                    <!-- Nama Lengkap -->
                                     <div class="mb-3">
-                                        <label for="name" class="form-label"> name</label>
+                                        <label for="name" class="form-label">Nama Lengkap</label>
                                         <input name="name" type="text" id="name" class="form-control"
                                             required value="{{ $dataUser->name }}">
                                     </div>
 
-                                    <!-- email -->
+                                    <!-- Email -->
                                     <div class="mb-3">
-                                        <label for="email" class="form-label">email</label>
+                                        <label for="email" class="form-label">Email</label>
                                         <input name="email" type="text" id="email" class="form-control"
-                                            required value="{{ $dataUser->email }}">
+                                            required value="{{$dataUser->email }}">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4 col-sm-6">
-                                    <!-- password -->
+                                    <!-- Password -->
                                     <div class="mb-3">
-                                        <label for="password" class="form-label">password</label>
+                                        <label for="password" class="form-label">Password</label>
                                         <input name="password" type="password" id="password" class="form-control"
                                             value="{{ $dataUser->password }}">
                                     </div>
-
 
                                     <!-- Buttons -->
                                     <div class="">
