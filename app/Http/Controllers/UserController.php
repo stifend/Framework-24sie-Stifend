@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-          $data['dataUser'] = User::all();
+        $data['dataUser'] = User::all();
         return view('admin.user.index', $data);
     }
 
@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function create()
     {
-         return view('admin.user.create');
+        return view('admin.user.create');
     }
 
     /**
@@ -31,9 +31,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data['name'] = $request->name;
-        $data['email'] = $request->email;
+        $data['email']  = $request->email;
         $data['password'] = Hash::make($request->password);
-       
 
         User::create($data);
 
@@ -53,7 +52,7 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-         $data['dataUser'] = User::findOrFail($id);
+        $data['dataUser'] = User::findOrFail($id);
         return view('admin.user.edit', $data);
     }
 
@@ -62,26 +61,24 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $id = $id;
-        $user = User::findOrFail($id);
+        $user    = User::findOrFail($id);
 
         $user->name = $request->name;
-        $user->email = $request-> email;
-        $user->password = $request->password;
-       
+        $user->email  = $request->email;
+        $user->password   = $request->password;
 
         $user->save();
-        return redirect()->route('user.index')->with('success', 'Data Berhasil Diupdate!');
+        return redirect()->route('user.index')->with('success', 'Perubahan Data Berhasil!');
     }
-
-    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
-    }
+    $user = User::findOrFail($id);
 
+    $user->delete();
+    return redirect()->route('user.index')->with('success', 'Data berhasil dihapus');
+    }
 }

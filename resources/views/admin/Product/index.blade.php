@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 @section('title')
-Pelanggan
+Product
 @endsection
 @section('content')
 
@@ -17,17 +17,17 @@ Pelanggan
                             </svg>
                         </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="#">Pelanggan</a></li>
+                    <li class="breadcrumb-item"><a href="#">Product</a></li>
                 </ol>
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Data User</h1>
-                    <p class="mb-0">List data seluruh User</p>
+                    <h1 class="h4">Data Product</h1>
+                    <p class="mb-0">List data seluruh Product</p>
                 </div>
                 <div>
-                    <a href="{{ route('user.create') }}" class="btn btn-success text-white"><i
-                            class="far fa-question-circle me-1"></i> Tambah Pelanggan</a>
+                    <a href="{{ route('Product.create') }}" class="btn btn-success text-white"><i
+                            class="far fa-question-circle me-1"></i> Tambah Product</a>
                 </div>
             </div>
         </div>
@@ -37,24 +37,24 @@ Pelanggan
                 <div class="card border-0 shadow mb-4">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="table-pelanggan" class="table table-centered table-nowrap mb-0 rounded">
+                            <table id="table-Product" class="table table-centered table-nowrap mb-0 rounded">
                                 <thead class="thead-light">
                                     <tr>
                                         <th class="border-0">Nama Lengkap</th>
-                                        <th class="border-0">Email</th>
-                                        <th class="border-0">Password</th>
+                                        <th class="border-0">Price</th>
+                                        <th class="border-0">description</th>
 
                                         <th class="border-0 rounded-end">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($dataUser as $item)
+                                    @foreach ($dataProduct as $item)
                                         <tr>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->password }}</td>
+                                            <td>{{ $item->price }}</td>
+                                            <td>{{ $item->description }}</td>
 
-                                            <td><a href="{{ route('user.edit', $item->id) }}"
+                                            <td><a href="{{ route('Product.edit', $item->id) }}"
                                                     class="btn btn-info btn-sm">
                                                     <svg class="icon icon-xs me-2" data-slot="icon" fill="none"
                                                         stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
@@ -65,7 +65,7 @@ Pelanggan
                                                     </svg>
                                                     Edit
                                                 </a>
-                                                <form action="{{ route('user.destroy', $item->id) }}" method="POST" style="display:inline">
+                                                <form action="{{ route('Product.destroy', $item->id) }}" method="POST" style="display:inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">
